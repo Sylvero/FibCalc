@@ -38,7 +38,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/Sylvero/fibCalc
+            ghcr.io/sylvero/fib_calc
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -68,4 +68,4 @@ jobs:
           cache-from: type=registry,src=/tmp/.buildx-cache
           cache-to: type=registry,mode=max,dest=/tmp/.buildx-cache-new
           tags: |
-            Sylvero/fib_calc
+            sylvero/fib_calc
