@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - master
+permissions: read-all|write-all
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -63,7 +64,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}   
           cache-from: type=registry,ref=docker.io/sylvero/fib_calc
           cache-to: type=registry,ref=docker.io/sylvero/fib_calc,mode=max
           tags: ${{ steps.meta.outputs.tags }}
