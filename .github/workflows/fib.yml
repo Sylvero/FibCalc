@@ -10,7 +10,7 @@ on:
     branches:
       - master
 permissions:
-      packages: admin
+      packages: write
       contents: read
 env:
   REGISTRY: ghcr.io
