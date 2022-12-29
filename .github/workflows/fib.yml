@@ -64,8 +64,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          oci-mediatypes: true
-          cache-from: type=registry,src=/tmp/.buildx-cache
-          cache-to: type=registry,mode=max,dest=/tmp/.buildx-cache-new
-          tags: |
-            sylvero/fib_calc
+          cache-from: type=registry,ref=docker.io/sylvero/fib_calc
+          cache-to: type=registry,ref=docker.io/sylvero/fib_calc,mode=max
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
